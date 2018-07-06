@@ -1,4 +1,5 @@
-<?php
+<?php session_start();
+
 	require_once 'config.php';
 	$queryResult = $pdo->query("SELECT * FROM users");
 ?>
@@ -16,12 +17,23 @@
 		<h1>List Users</h1>
 		<a href="index.php">Home</a>
 
+		<?php if (!empty($_SESSION['mensaje'])): ?>
+			<div class="row alert alert-success">
+				<?php 
+					echo $_SESSION['mensaje']; 
+					unset($_SESSION['mensaje']);
+				?>
+				
+			</div>
+		<?php endif ?>
+
 		<table class="table table-light table-hover table-bordered">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Name</th>
 					<th scope="col">Email</th>
+					<th scope="col"></th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
@@ -32,6 +44,7 @@
 		<td><?= $row['name']; ?></td>
 		<td><?= $row['email']; ?></td>
 		<td><a href="update.php?id=<?= $row['id']; ?>">Edit</a></td>
+		<td><a href="delete.php?id=<?= $row['id']; ?>">Delete</a></td>
 	</tr>
 <?php endforeach ?>
 			</tbody>
