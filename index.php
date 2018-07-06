@@ -12,6 +12,7 @@
 		<ul>
 			<li><a href="list.php">List Users</a></li>
 			<li><a href="add.php">Add User</a></li>
+			<li><a href="add.php">Fake Login</a></li>
 		</ul>
 	</div>
 </body>
