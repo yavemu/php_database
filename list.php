@@ -22,6 +22,7 @@
 					<th scope="col">#</th>
 					<th scope="col">Name</th>
 					<th scope="col">Email</th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,6 +31,7 @@
 		<th scope="row"><?= $key+1; ?></th>
 		<td><?= $row['name']; ?></td>
 		<td><?= $row['email']; ?></td>
+		<td><a href="update.php?id=<?= $row['id']; ?>">Edit</a></td>
 	</tr>
 <?php endforeach ?>
 			</tbody>
